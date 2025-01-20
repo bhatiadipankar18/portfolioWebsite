@@ -16,9 +16,7 @@ export default function Home() {
         <About />
         <Resume />
         <Skills />
-        <Experience />
         <Projects />
-        <AcademicJourney />
         <Timeline />
         <ContactMe />
       </div>
