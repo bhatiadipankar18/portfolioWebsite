@@ -8,8 +8,6 @@ const Header: FC = () => {
     "Resume",
     "Skills",
     "Projects",
-    "Academic Journey",
-    "Experience",
     "Timeline",
     "Contact Me"
   ];

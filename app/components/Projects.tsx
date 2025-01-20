@@ -16,6 +16,11 @@ const projects = [
     title: "Nurture Nest",
     description: "A brief description of Project 2 and its key features.",
     githubLink: "https://github.com/bhatiadipankar18/nurture-nest",
+  },
+  {
+    title: "Porfolio Website",
+    description: "A brief description of Project 2 and its key features.",
+    githubLink: "https://github.com/bhatiadipankar18/portfolioWebsite",
   }
 ]
 
