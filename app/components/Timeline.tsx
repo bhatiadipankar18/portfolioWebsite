@@ -113,9 +113,9 @@ export default function Timeline() {
                   <MapPin className="inline mr-2" size={16} />
                   {item.location}
                 </p>
-                <p className="mt-2 text-lg font-bold text-white">
-                  <CalendarDays className="inline mr-2" size={20} />
-                  {item.date}
+                <p className="mt-2 text-sm text-gray-400">
+                 <CalendarDays className="inline mr-2" size={16} />
+                 {item.date}
                 </p>
               </div>
 
