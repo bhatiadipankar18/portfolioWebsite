@@ -1,79 +1,83 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Send, CheckCircle, XCircle } from "lucide-react"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Send, CheckCircle, XCircle } from "lucide-react";
+import emailjs from "emailjs-com";
 
 type FormData = {
-  name: string
-  email: string
-  message: string
-}
+  name: string;
+  email: string;
+  message: string;
+};
 
 type Errors = {
-  name?: string
-  email?: string
-  message?: string
-}
+  name?: string;
+  email?: string;
+  message?: string;
+};
 
 export default function ContactMe() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
-  })
-  const [errors, setErrors] = useState<Errors>({})
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  });
+  const [errors, setErrors] = useState<Errors>({});
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const validate = (): boolean => {
-    let valid = true
-    const newErrors: Errors = {}
+    let valid = true;
+    const newErrors: Errors = {};
 
     if (formData.name.trim().length < 3) {
-      valid = false
-      newErrors.name = "Name must be at least 3 characters."
+      valid = false;
+      newErrors.name = "Name must be at least 3 characters.";
     }
     if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      valid = false
-      newErrors.email = "Invalid email address."
+      valid = false;
+      newErrors.email = "Invalid email address.";
     }
     if (formData.message.trim().length < 10) {
-      valid = false
-      newErrors.message = "Message must be at least 10 characters."
+      valid = false;
+      newErrors.message = "Message must be at least 10 characters.";
     }
 
-    setErrors(newErrors)
-    return valid
-  }
+    setErrors(newErrors);
+    return valid;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!validate()) return
+    e.preventDefault();
+    if (!validate()) return;
 
-    setStatus("loading")
+    setStatus("loading");
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      })
+try {
+  await emailjs.send(
+    process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, 
+    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!, 
+    {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    },
+    process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+  );
 
-      if (response.ok) {
-        setStatus("success")
-        setFormData({ name: "", email: "", message: "" })
-        setErrors({})
-      } else {
-        setStatus("error")
-      }
+      setStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+      setErrors({});
     } catch (error) {
-      setStatus("error")
+      console.log("error JS Error, bhaago")
+      setStatus("error");
+      console.error("EmailJS Error:", error);
     }
-  }
+  };
 
   const inputVariants = {
     focus: { scale: 1.02, transition: { type: "spring", stiffness: 300 } },
-  }
+  };
 
   return (
     <section id="contact" className="py-20 bg-gray-900">
@@ -178,5 +182,5 @@ export default function ContactMe() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
