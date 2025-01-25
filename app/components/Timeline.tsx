@@ -42,6 +42,16 @@ const timelineItems = [
     logo: "/logos/kellton.png",
   },
   {
+    date: "July 2020 - August 2020",
+    title: "Software Engineer Intern",
+    company: "Bharat Heavy Electricals Limited",
+    description: "",
+    location: "Noida, Uttar Pradesh, India",
+    website: "https://www.bhel.com",
+    icon: Briefcase,
+    logo: "/logos/bhel.png",
+  },
+  {
     date: "August 2017 - August 2021",
     title: "Bachelor of Technology (B.Tech.) in Computer Science and Engineering",
     company: "Dr. A.P.J Abdul Kalam Technical University",
