@@ -35,6 +35,7 @@ export default function Skills() {
         { name: "MySQL", iconClass: "devicon-mysql-plain colored" },
         { name: "PostgreSQL", iconClass: "devicon-postgresql-plain colored" },
         { name: "MongoDB", iconClass: "devicon-mongodb-plain colored" },
+        { name: "Neo4j", iconClass: "devicon-neo4j-plain-wordmark" },
       ],
     },
     {
