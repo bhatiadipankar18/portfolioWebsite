@@ -7,6 +7,13 @@ import { Github, ExternalLink, ChevronRight } from "lucide-react"
 
 const projects = [
   {
+    title: "Hire Me",
+    description:
+      "A professional social media/networking platform that helps you land jobs",
+    githubLink: "https://github.com/bhatiadipankar18/HireMe",
+    tags: ["Java", "Spring Boot", "Neo4j", "PostgreSQL", "API Gateway", "Hibernate", "JWT"],
+  },
+  {
     title: "Stay Ease",
     description:
       "A hotel booking platform that simplifies the reservation process for travelers and hotel managers alike",
