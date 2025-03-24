@@ -12,16 +12,6 @@ const timelineItems = [
     logo: "/logos/changing-the-present.png",
   },
   {
-    date: "January 2024 - May 2024",
-    title: "Software Engineer Intern",
-    company: "Stevens Institute of Technology",
-    description: "",
-    location: "Hoboken, New Jersey, United States",
-    website: "https://www.stevens.edu",
-    icon: Briefcase,
-    logo: "/logos/stevens.png",
-  },
-  {
     date: "September 2022 - May 2024",
     title: "Master of Science (M.S) in Computer Science",
     company: "Stevens Institute of Technology",
